@@ -16,7 +16,7 @@ import java.io.Serializable;
  * @author thechucklingatom
  *
  */
-public class Legality implements Serializable{
+public class Legality implements Serializable {
 	private String format;
 	private String legality;
 

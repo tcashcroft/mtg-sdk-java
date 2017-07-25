@@ -1,6 +1,7 @@
-/target/
-
-/.settings/
-.project
-.classpath
-settings.xml
+/*
+!/LICENSE
+!/README.md
+!/pom.xml
+!/src
+!/stubby
+!/stubby-config.yml

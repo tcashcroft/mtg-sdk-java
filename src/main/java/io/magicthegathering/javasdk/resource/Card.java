@@ -16,7 +16,6 @@ import java.math.BigDecimal;
  *
  * @author thechucklingatom
  */
-@SuppressWarnings("serial")
 public class Card implements Serializable {
 	private String id;
 	private String layout;
@@ -39,7 +38,7 @@ public class Card implements Serializable {
 	private String power;
 	private String toughness;
 	private int loyalty;
-	private int multiverseid = -1;
+	private int multiverseId;
 	private int[] variations;
 	private String imageName;
 	private String watermark;
@@ -62,6 +61,10 @@ public class Card implements Serializable {
 	private BigDecimal onlinePriceMid;
 	private BigDecimal onlinePriceLow;
 	private Ruling[] rulings;
+
+	public Card() {
+		multiverseId = -1;
+	}
 
 	public String getId() {
 		return id;
@@ -223,12 +226,12 @@ public class Card implements Serializable {
 		this.loyalty = loyalty;
 	}
 
-	public int getMultiverseid() {
-		return multiverseid;
+	public int getMultiverseId() {
+		return multiverseId;
 	}
 
-	public void setMultiverseid(int multiverseid) {
-		this.multiverseid = multiverseid;
+	public void setMultiverseId(int multiverseId) {
+		this.multiverseId = multiverseId;
 	}
 
 	public int[] getVariations() {
@@ -322,7 +325,7 @@ public class Card implements Serializable {
 	public boolean equals(Object toCompare) {
 		if (toCompare instanceof Card) {
 			Card cardCompare = (Card) toCompare;
-			return getMultiverseid() == cardCompare.getMultiverseid()
+			return getMultiverseId() == cardCompare.getMultiverseId()
 					&& getName().equals(cardCompare.getName())
 					&& getManaCost().equals(cardCompare.getManaCost());
 		} else {
@@ -339,7 +342,7 @@ public class Card implements Serializable {
 	@Override
 	public String toString() {
 		return "\nCard Name: " + getName() +
-				"\nMultiverse Id: " + getMultiverseid() +
+				"\nMultiverse Id: " + getMultiverseId() +
 				"\nMana Cost: " + getManaCost();
 	}
 
