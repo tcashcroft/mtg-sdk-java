@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author thechucklingatom
  */
-public class MtgSet {
+public class Set {
 	private String name;
 	private String code;
 	private String gathererCode;
@@ -128,13 +128,13 @@ public class MtgSet {
 	/**
 	 * dirty compare to in order to start testing. Just comparing the setGathererCode
 	 * which should be unique. May change to just the code.
-	 * @param toCompare A {@link MtgSet} object hopefully
+	 * @param toCompare A {@link Set} object hopefully
 	 * @return true if the same set, false if different.
 	 */
 	@Override
 	public boolean equals(Object toCompare){
-		if(toCompare instanceof MtgSet){
-			MtgSet cardCompare = (MtgSet)toCompare;
+		if(toCompare instanceof Set){
+			Set cardCompare = (Set)toCompare;
 			return getGatherercode().equalsIgnoreCase(cardCompare.getGatherercode());
 		}else{
 			return false;

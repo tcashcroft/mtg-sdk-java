@@ -1,5 +1,7 @@
 package io.magicthegathering.javasdk.resource;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -32,12 +34,15 @@ public class Card implements Serializable {
 	private String rarity;
 	private String text;
 	private String originalText;
+	private String originalType;
 	private String flavor;
 	private String artist;
 	private String number;
 	private String power;
 	private String toughness;
 	private int loyalty;
+
+	@JsonProperty("multiverseid")
 	private int multiverseId;
 	private int[] variations;
 	private String imageName;
@@ -61,6 +66,7 @@ public class Card implements Serializable {
 	private BigDecimal onlinePriceMid;
 	private BigDecimal onlinePriceLow;
 	private Ruling[] rulings;
+	private ForeignName[] foreignNames;
 
 	public Card() {
 		multiverseId = -1;
@@ -449,4 +455,20 @@ public class Card implements Serializable {
   public void setRulings(Ruling[] rulings) {
     this.rulings = rulings;
   }
+
+	public ForeignName[] getForeignNames() {
+		return foreignNames;
+	}
+
+	public void setForeignNames(ForeignName[] foreignNames) {
+		this.foreignNames = foreignNames;
+	}
+
+	public String getOriginalType() {
+		return originalType;
+	}
+
+	public void setOriginalType(String originalType) {
+		this.originalType = originalType;
+	}
 }

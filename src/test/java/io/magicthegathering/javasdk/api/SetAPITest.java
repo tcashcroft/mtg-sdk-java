@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.magicthegathering.javasdk.resource.Card;
-import io.magicthegathering.javasdk.resource.MtgSet;
+import io.magicthegathering.javasdk.resource.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 public class SetAPITest extends MTGAPITest {
 	@Test
 	public void testGetSet() {
-		MtgSet testSet = new MtgSet();
+		Set testSet = new Set();
 		testSet.setGatherercode("1E");
 		assertEquals(testSet, SetAPI.getSet("LEA"));
 		assertFalse(testSet.equals(SetAPI.getSet("LEB")));
@@ -29,8 +29,8 @@ public class SetAPITest extends MTGAPITest {
 
 	@Test
 	public void testGetAllSets() {
-		List<MtgSet> testSetList = SetAPI.getAllSets();
-		MtgSet testSet = new MtgSet();
+		List<Set> testSetList = SetAPI.getAllSets();
+		Set testSet = new Set();
 		testSet.setGatherercode("1E");
 		assertEquals(testSetList.get(0), testSet);
 	}
@@ -47,7 +47,7 @@ public class SetAPITest extends MTGAPITest {
 		ArrayList<String> filter = new ArrayList<>();
 		filter.add("name=Alpha");
 
-		MtgSet alpha = SetAPI.getSet("LEA");
+		Set alpha = SetAPI.getSet("LEA");
 
 		assertTrue(SetAPI.getAllSets(filter).contains(alpha));
 	}
